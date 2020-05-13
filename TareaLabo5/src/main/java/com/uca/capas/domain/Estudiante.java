@@ -1,52 +1,72 @@
 package com.uca.capas.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema = "public", name = "estudiante")
 public class Estudiante {
 
+	@Id
+	@Column(name = "c_usuario")
 	private Integer codigoEstudiante;
+
+	@Column(name = "nombre")
 	private String Nombre;
+
+	@Column(name = "apellido")
 	private String Apellido;
-	private Integer Edad;
-	private Boolean Estado;
+
+	@Column(name = "carne")
+	private String Carne;
+
+	@Column(name = "carrera")
+	private String Carrera;
+
+	public Estudiante() {
+
+	}
+
 	public Integer getCodigoEstudiante() {
 		return codigoEstudiante;
 	}
+
 	public void setCodigoEstudiante(Integer codigoEstudiante) {
 		this.codigoEstudiante = codigoEstudiante;
 	}
+
 	public String getNombre() {
 		return Nombre;
 	}
+
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
+
 	public String getApellido() {
 		return Apellido;
 	}
+
 	public void setApellido(String apellido) {
 		Apellido = apellido;
 	}
-	public Integer getEdad() {
-		return Edad;
+
+	public String getCarne() {
+		return Carne;
 	}
-	public void setEdad(Integer edad) {
-		Edad = edad;
+
+	public void setCarne(String carne) {
+		Carne = carne;
 	}
-	public Boolean getEstado() {
-		return Estado;
+
+	public String getCarrera() {
+		return Carrera;
 	}
-	public void setEstado(Boolean estado) {
-		Estado = estado;
+
+	public void setCarrera(String carrera) {
+		Carrera = carrera;
 	}
-	
-	public Estudiante() {
-		
-	}
-	
-	public String getEstadoDelegate() {
-		if(this.Estado==null)return "";
-		else {
-			return Estado == true?"Activo":"Inactivo";
-		}
-	}
-	
+
 }
