@@ -6,6 +6,7 @@ import org.springframework.dao.DataAccessException;
 
 import com.uca.capas.domain.Estudiante;
 
+
 public interface EstudianteDAO {
 	
 	public List<Estudiante>findAll() throws DataAccessException;
@@ -13,4 +14,5 @@ public interface EstudianteDAO {
 
 	public Estudiante findOne(Integer code) throws DataAccessException;
 	
+	public void save(Estudiante e) throws DataAccessException;
 }

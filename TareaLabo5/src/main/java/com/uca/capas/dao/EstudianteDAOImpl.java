@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -31,4 +32,12 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 		Estudiante estudiante = entityManager.find(Estudiante.class, code);
 		return estudiante;
 	}
+
+	@Transactional
+	public void save(Estudiante e) throws DataAccessException {
+		entityManager.persist(e);
+		
+	}
+	
+	
 }
