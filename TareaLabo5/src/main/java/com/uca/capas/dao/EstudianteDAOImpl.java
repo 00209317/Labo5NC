@@ -33,7 +33,7 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 		return estudiante;
 	}
 
-	
+	@Transactional
 	public void save(Estudiante e) throws DataAccessException {
 		entityManager.persist(e);
 		

@@ -1,7 +1,10 @@
 package com.uca.capas.domain;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +14,7 @@ public class Estudiante {
 
 	@Id
 	@Column(name = "c_usuario")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigoEstudiante;
 
 	@Column(name = "nombre")

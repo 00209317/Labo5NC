@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,19 +21,19 @@ public class MainController {
 	/*@RequestMapping("/inicio")
 	public String index() {
 		return "index";
-	}
+	}*/
 	
-	@RequestMapping("/guardar")
+	@RequestMapping("/inicio")
 	public ModelAndView guardarCliente(@ModelAttribute Estudiante e) {
 		ModelAndView mav = new ModelAndView();
 		//Mando a llamar al servicio encargado de guardar a la entidad
 		estudianteDao.save(e);
 		mav.setViewName("index");
-		mav.addObject("resultado", 1);
+		//mav.addObject("resultado", 1);
 		return mav;
-	}*/
+	}
 	
-	@RequestMapping("/estudiante")
+	@RequestMapping("/listado")
 	public ModelAndView main() {
 		ModelAndView mav = new ModelAndView();
 		List<Estudiante> estudiantes = null;
@@ -44,7 +44,7 @@ public class MainController {
 			e.printStackTrace();
 		}
 		mav.addObject("estudiantes", estudiantes);
-		mav.setViewName("index");
+		mav.setViewName("listado");
 		
 		
 		return mav;

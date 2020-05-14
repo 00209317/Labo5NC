@@ -2,30 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Guardar Estudiante</title>
+<title>Guardar Estudiantes</title>
 </head>
 <body>
-<h1>Estudiantes</h1>
-<br>
+	<h1>Guardar Estudiantes</h1>
 
-<table>
-	<thead>
-		<th>Codigo_usuario</th>
-		<th>Nombre</th>
-		<th>Apellido</th>
-		<th>Carne</th>
-		<th>Carrera</th>
-	</thead>
-	<th:block th:each="estudiante, row:${estudiantes}">
-	<tr>
-		<th th:text="${estudiante.codigoEstudiante}"/>
-		<th th:text="${estudiante.nombre}"/>
-		<th th:text="${estudiante.apellido}"/>
-		<th th:text="${estudiante.carne}"/>
-		<th th:text="${estudiante.carrera}"/>
-	</tr>
-	</th:block>
-</table>
+	<form method="post" th:action="@{/inicio}" th:object="${estudiante}">
+		<table>
+			<!--<tr>
+				<td><input type="button" class="btn btn-secondary"
+					value="Regresar" onclick="location.href='./index15'" /></td>
+			</tr>-->
+			<tr>
+				<td><label>Nombre: </label></td>
+				<td><input type="text" th:field="*{nombre}"></td>
+			</tr>
+			<tr>
+				<td><label>Apellidos:</label></td>
+				<td><input type="text" th:field="*{apellido}"></td>
+			</tr>
+			<tr>
+				<td><label>Carne: </label></td>
+				<td><input type="text" th:field="*{carne}"></td>
+			</tr>
+			<tr>
+				<td><label>Carrera: </label></td>
+				<td><input type="text" th:field="*{carrera}"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Guardar Estudiante" /></td><br>
+			</tr>
+		</table>
+	</form>
+			<input type="submit" value="Listado Estudiantes" onclick="location.href='listado'"/>
 
 </body>
 </html>
