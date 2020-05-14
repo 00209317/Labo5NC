@@ -3,38 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <title>Guardar Estudiantes</title>
+<link rel="stylesheet" href="other.css">
 </head>
 <body>
 	<h1>Guardar Estudiantes</h1>
 
-	<form method="post" th:action="@{/inicio}" th:object="${estudiante}">
-		<table>
-			<!--<tr>
-				<td><input type="button" class="btn btn-secondary"
-					value="Regresar" onclick="location.href='./index15'" /></td>
-			</tr>-->
-			<tr>
-				<td><label>Nombre: </label></td>
-				<td><input type="text" th:field="*{nombre}"></td>
-			</tr>
-			<tr>
-				<td><label>Apellidos:</label></td>
-				<td><input type="text" th:field="*{apellido}"></td>
-			</tr>
-			<tr>
-				<td><label>Carne: </label></td>
-				<td><input type="text" th:field="*{carne}"></td>
-			</tr>
-			<tr>
-				<td><label>Carrera: </label></td>
-				<td><input type="text" th:field="*{carrera}"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Guardar Estudiante" /></td><br>
-			</tr>
-		</table>
-	</form>
-			<input type="submit" value="Listado Estudiantes" onclick="location.href='listado'"/>
+	<div class="container">
+		<form th:action="@{/guardarEstudiante}" th:object="${estudiante}" method="post">
+			<div class="row">
+				<div class="col-25">
+					<label for="fname">Nombre:</label>
+				</div>
+				<div class="col-75">
+					<input type="text" th:field="*{nombre}" placeholder="Ingrese su nombre"/><br> 
+					<span th:errors="*{nombre}"></span><br>
+				</div>
+
+				<div class="col-25">
+					<label for="fname">Apellido:</label>
+				</div>
+				<div class="col-75">
+					<input type="text" th:field="*{apellido}" placeholder="Ingrese su apellido"/><br> 
+					<span th:errors="*{apellido}"></span><br>
+				</div>
+
+				<div class="col-25">
+					<label for="fname">Carne:</label>
+				</div>
+				<div class="col-75">
+					<input type="text" th:field="*{carne}"placeholder="Ingrese su carne"/><br> 
+					<span th:errors="*{carne}"></span><br>
+				</div>
+
+				<div class="col-25">
+					<label for="fname">Carrera:</label>
+				</div>
+				<div class="col-75">
+					<input type="text" th:field="*{carrera}" placeholder="Ingrese su carrera"/><br> 
+					<span th:errors="*{carrera}"></span><br>
+				</div>
+
+			</div>
+
+
+			<div class="row">
+				<input type="submit" value="Guardar Estudiante"/>
+			</div>
+		</form>
+		<br>
+		<div class="row">
+			<input type="submit" value="Listado Estudiantes"
+				onclick="location.href='listado'" />
+		</div>
+	</div>
+
 
 </body>
 </html>

@@ -35,9 +35,11 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 
 	@Transactional
 	public void save(Estudiante e) throws DataAccessException {
-		entityManager.persist(e);
-		
+		if(e.getCodigoEstudiante()==null) {
+			entityManager.persist(e);
+		}
+		else {
+			entityManager.merge(e);
+		}
 	}
-	
-	
 }

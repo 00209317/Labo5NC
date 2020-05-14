@@ -2,8 +2,11 @@ package com.uca.capas.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,20 +21,35 @@ public class MainController {
 	@Autowired
 	private EstudianteDAO estudianteDao;
 	
-	/*@RequestMapping("/inicio")
-	public String index() {
-		return "index";
-	}*/
-	
 	@RequestMapping("/inicio")
-	public ModelAndView guardarCliente(@ModelAttribute Estudiante e) {
+	public ModelAndView inicio() {
+		Estudiante estudiante = new Estudiante();
 		ModelAndView mav = new ModelAndView();
-		//Mando a llamar al servicio encargado de guardar a la entidad
-		estudianteDao.save(e);
+		mav.addObject("estudiante", estudiante);
 		mav.setViewName("index");
-		//mav.addObject("resultado", 1);
+		return mav;
+		
+	}
+	
+	
+	@RequestMapping("/guardarEstudiante")
+	public ModelAndView guardarE(@Valid @ModelAttribute Estudiante estudiante, BindingResult result) {
+		ModelAndView mav = new ModelAndView();
+		//mav.addObject("estudiante", estudiante);
+		//mav.setViewName("index");
+		//--------------------------------------
+		if(result.hasErrors()) {
+			mav.setViewName("index");
+			System.out.println("entre aqui por error");
+		}
+		else {
+			estudianteDao.save(estudiante);
+			mav.setViewName("index");
+			System.out.println("entre aqui porque hice todo bien");
+		}
 		return mav;
 	}
+	
 	
 	@RequestMapping("/listado")
 	public ModelAndView main() {
