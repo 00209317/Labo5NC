@@ -41,6 +41,9 @@ public class MainController {
 		if(result.hasErrors()) {
 			mav.setViewName("index");
 			System.out.println("entre aqui por error");
+			System.out.println(result.getErrorCount());
+			System.out.println(result.getAllErrors());
+			
 		}
 		else {
 			estudianteDao.save(estudiante);
