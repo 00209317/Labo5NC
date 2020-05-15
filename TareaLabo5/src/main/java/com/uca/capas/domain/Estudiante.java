@@ -19,23 +19,23 @@ public class Estudiante {
 	private Integer codigoEstudiante;
 
 	@Column(name = "nombre")
-	@Size(message = "El nombre no debe tener más de 50 caracteres", max=50)
-	@NotEmpty(message = "No puede ser vacío")
+	@Size(message = "El campo nombre no debe tener más de 50 caracteres", max=50)
+	@NotEmpty(message = "El campo nombre no puede ser vacío")
 	private String Nombre;
 
 	@Column(name = "apellido")
-	@Size(message = "El apellido no debe tener más de 50 caracteres", max=50)
-	@NotEmpty(message = "No puede ser vacío")
+	@Size(message = "El campo apellido no debe tener más de 50 caracteres", max=50)
+	@NotEmpty(message = "El campo apellido no puede ser vacío")
 	private String Apellido;
 
 	@Column(name = "carne")
-	@Size(message = "El carne no debe tener más de 10 caracteres", max=10)
-	@NotEmpty(message = "No puede ser vacío")
+	@Size(message = "El campo carné no debe tener más de 10 caracteres", max=10)
+	@NotEmpty(message = "El campo carné no puede ser vacío")
 	private String Carne;
 
 	@Column(name = "carrera")
-	@Size(message = "La carrera no debe tener más de 100 caracteres", max=100)
-	@NotEmpty(message = "No puede ser vacío")
+	@Size(message = "El campo carrera no debe tener más de 100 caracteres", max=100)
+	@NotEmpty(message = "El campo carrera no puede ser vacío")
 	private String Carrera;
 
 	public Estudiante() {

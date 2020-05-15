@@ -4,12 +4,18 @@
 <meta charset="UTF-8">
 <title>Guardar Estudiantes</title>
 <link rel="stylesheet" href="other.css">
+<script type="text/javascript">
+function formReset()
+{
+document.getElementById("gEstudianteForm").reset();
+}
+</script>
 </head>
 <body>
 	<h1>Guardar Estudiantes</h1>
 
 	<div class="container">
-		<form th:action="@{/guardarEstudiante}" th:object="${estudiante}" method="post">
+		<form id="gEstudianteForm" th:action="@{/guardarEstudiante}" th:object="${estudiante}" method="post">
 			<div class="row">
 			
 				
@@ -17,46 +23,50 @@
 					<label for="fname">Nombre:</label>
 				</div>
 				<div class="col-75">
-					<input type="text" th:field="*{nombre}" placeholder="Ingrese su nombre"/><br> 
-					<span th:errors="*{nombre}"></span><br>
+					<input type="text" th:field="*{Nombre}" placeholder="Ingrese su nombre"/><br> 
+					<span th:errors="*{Nombre}"></span><br>
 				</div>
 
 				<div class="col-25">
 					<label for="fapellido">Apellido:</label>
 				</div>
 				<div class="col-75">
-					<input type="text" th:field="*{apellido}" placeholder="Ingrese su apellido"/><br> 
-					<span th:errors="*{apellido}"></span><br>
+					<input type="text" th:field="*{Apellido}" placeholder="Ingrese su apellido"/><br> 
+					<span th:errors="*{Apellido}"></span><br>
 				</div>
 
 				<div class="col-25">
 					<label for="fcarne">Carne:</label>
 				</div>
 				<div class="col-75">
-					<input type="text" th:field="*{carne}"placeholder="Ingrese su carne"/><br> 
-					<span th:errors="*{carne}"></span><br>
+					<input type="text" th:field="*{Carne}"placeholder="Ingrese su carne"/><br> 
+					<span th:errors="*{Carne}"></span><br>
 				</div>
 
 				<div class="col-25">
 					<label for="fcarrera">Carrera:</label>
 				</div>
 				<div class="col-75">
-					<input type="text" th:field="*{carrera}" placeholder="Ingrese su carrera"/><br> 
-					<span th:errors="*{carrera}"></span><br>
+					<input type="text" th:field="*{Carrera}" placeholder="Ingrese su carrera"/><br> 
+					<span th:errors="*{Carrera}"></span><br>
 				</div>
-
+				
 			</div>
 
 
 			<div class="row">
 				<input type="submit" value="Guardar Estudiante"/>
 			</div>
+			<div class="row">
+		</div>
+		
 		</form>
 		<br>
 		<div class="row">
 			<input type="submit" value="Listado Estudiantes"
 				onclick="location.href='listado'" />
 		</div>
+		
 	</div>
 
 
