@@ -64,8 +64,17 @@ document.getElementById("gEstudianteForm").reset();
 		<br>
 		<div class="row">
 			<input type="submit" value="Listado Estudiantes"
-				onclick="location.href='listado'" />
+				onclick="location.href='listado'" /><br>
+				
 		</div>
+		<div class="container">
+			<form th:action = "@{/borrarEstudiante}" method = "post">
+				<label>Borrar estudiante por codigo</label>
+				<input type="number" name = "codigo"><br><br>
+				<input type="submit" value = "Borrar">			
+			</form>
+		</div>
+		<br>
 		
 	</div>
 

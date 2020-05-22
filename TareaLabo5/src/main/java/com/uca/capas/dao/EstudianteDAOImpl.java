@@ -33,13 +33,32 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 		return estudiante;
 	}
 
+	@Override
 	@Transactional
-	public void save(Estudiante e) throws DataAccessException {
-		if(e.getCodigoEstudiante()==null) {
-			entityManager.persist(e);
+	public void save(Estudiante estudiante) throws DataAccessException {
+		// TODO Auto-generated method stub
+		try {
+			if (estudiante.getCodigoEstudiante()==null) {
+				entityManager.persist(estudiante);
+			}
+			else {
+				entityManager.merge(estudiante);
+				entityManager.flush();
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
-		else {
-			entityManager.merge(e);
-		}
+		
 	}
+
+	@Override
+	@Transactional
+	public void delete(Integer codigoEstudiante) throws DataAccessException {
+		// TODO Auto-generated method stub
+		Estudiante estudiante = entityManager.find(Estudiante.class, codigoEstudiante);
+		entityManager.remove(estudiante);
+		
+	}
+
 }
