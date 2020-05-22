@@ -1,4 +1,4 @@
-package com.uca.capas.domain;
+package com.uca.capas.service;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.uca.capas.dao.EstudianteDAO;
 import com.uca.capas.domain.Estudiante;
-import com.uca.capas.service.EstudianteService;
 
 @Service
 public class EstudianteServiceImpl implements EstudianteService {
@@ -40,9 +39,9 @@ public class EstudianteServiceImpl implements EstudianteService {
 
 	@Override
 	@Transactional
-	public void delete(Integer codigoEstudiante) throws DataAccessException {
+	public void delete(Integer codigo) throws DataAccessException {
 		// TODO Auto-generated method stub
-		estudianteDAO.delete(codigoEstudiante);
+		estudianteDAO.delete(codigo);
 
 	}
 

@@ -14,6 +14,6 @@ public List<Estudiante> findAll() throws DataAccessException;
 	
 	public void save(Estudiante estudiante) throws DataAccessException;
 	
-	public void delete(Integer codigoEstudiante) throws DataAccessException;
+	public void delete(Integer codigo) throws DataAccessException;
 	
 }

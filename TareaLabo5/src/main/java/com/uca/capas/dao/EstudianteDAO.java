@@ -15,6 +15,6 @@ public interface EstudianteDAO {
 	
 	public void save (Estudiante estudiante) throws DataAccessException;
 	
-	public void delete(Integer codigoEstudiante) throws DataAccessException;
+	public void delete(Integer codigo) throws DataAccessException;
 	
 }
